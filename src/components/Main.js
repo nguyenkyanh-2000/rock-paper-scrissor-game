@@ -35,6 +35,9 @@ export default function Main() {
     setUserGameItem({ ...gameItem });
   };
 
+  // userGameItem = null => click on rock => userGameItem = rock => run the codes in useEffect + render the result
+  // if userGameItem is not null => create a random game item for computer => compare userGameItem and computerGameItem => set the result
+  // set the result => render the app again => show who is the winner
   useEffect(() => {
     if (userGameItem) {
       const computerNewItem = getRandomGameItem(gameItems);
@@ -47,14 +50,14 @@ export default function Main() {
     <div className="conainer">
       <div className="main">
         <Result
-          user1GameItem={"Your code here"}
-          user2GameItem={"Your code here"}
-          result={"Your code here"}
+          user1GameItem={userGameItem}
+          user2GameItem={computerGameItem}
+          result={result}
         />
         <Display />
         <Choices
-          gameItems={"Your code here"}
-          handleGameItemChange={"Your code here"}
+          gameItems={gameItems}
+          handleGameItemChange={handleGameItemChange}
         />
       </div>
     </div>
